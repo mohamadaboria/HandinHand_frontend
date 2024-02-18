@@ -1,0 +1,14 @@
+io.flutter.plugins.firebase.core.firebase_core-jetified-play-services-basement-18.1.0-0 C:\Users\mosta\.gradle\caches\transforms-3\19479574ab4ee5be269b06cd49b1a3a3\transformed\jetified-play-services-basement-18.1.0\res
+io.flutter.plugins.firebase.core.firebase_core-jetified-annotation-experimental-1.1.0-1 C:\Users\mosta\.gradle\caches\transforms-3\3d5c77ed963694bbf9910ee750ae6541\transformed\jetified-annotation-experimental-1.1.0\res
+io.flutter.plugins.firebase.core.firebase_core-jetified-window-1.0.0-beta04-2 C:\Users\mosta\.gradle\caches\transforms-3\43c992291052dda58e64f41de2615ff9\transformed\jetified-window-1.0.0-beta04\res
+io.flutter.plugins.firebase.core.firebase_core-jetified-firebase-common-20.4.2-3 C:\Users\mosta\.gradle\caches\transforms-3\485747fd85e96b2bda538890c905b082\transformed\jetified-firebase-common-20.4.2\res
+io.flutter.plugins.firebase.core.firebase_core-jetified-window-java-1.0.0-beta04-4 C:\Users\mosta\.gradle\caches\transforms-3\920f8d37b395da2a597a2bddca254efa\transformed\jetified-window-java-1.0.0-beta04\res
+io.flutter.plugins.firebase.core.firebase_core-core-1.6.0-5 C:\Users\mosta\.gradle\caches\transforms-3\e45814696c6e3f1db2d92d68f71c7abc\transformed\core-1.6.0\res
+io.flutter.plugins.firebase.core.firebase_core-main-6 C:\Users\mosta\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-2.24.2\android\src\main\res
+io.flutter.plugins.firebase.core.firebase_core-release-7 C:\Users\mosta\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-2.24.2\android\src\release\res
+io.flutter.plugins.firebase.core.firebase_core-pngs-8 D:\mostafa\work\mohammed\ResearchApp\build\firebase_core\generated\res\pngs\release
+io.flutter.plugins.firebase.core.firebase_core-resValues-9 D:\mostafa\work\mohammed\ResearchApp\build\firebase_core\generated\res\resValues\release
+io.flutter.plugins.firebase.core.firebase_core-rs-10 D:\mostafa\work\mohammed\ResearchApp\build\firebase_core\generated\res\rs\release
+io.flutter.plugins.firebase.core.firebase_core-mergeReleaseResources-11 D:\mostafa\work\mohammed\ResearchApp\build\firebase_core\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.firebase.core.firebase_core-mergeReleaseResources-12 D:\mostafa\work\mohammed\ResearchApp\build\firebase_core\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.firebase.core.firebase_core-merged_res-13 D:\mostafa\work\mohammed\ResearchApp\build\firebase_core\intermediates\merged_res\release

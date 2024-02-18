@@ -1,0 +1,4 @@
+#Sun Feb 04 14:21:33 EET 2024
+base.0=D\:\\mostafa\\work\\mohammed\\ResearchApp\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,0 +1,12 @@
+com.vanethos.notification_permissions-jetified-annotation-experimental-1.1.0-0 C:\Users\mosta\.gradle\caches\transforms-3\3d5c77ed963694bbf9910ee750ae6541\transformed\jetified-annotation-experimental-1.1.0\res
+com.vanethos.notification_permissions-jetified-window-1.0.0-beta04-1 C:\Users\mosta\.gradle\caches\transforms-3\43c992291052dda58e64f41de2615ff9\transformed\jetified-window-1.0.0-beta04\res
+com.vanethos.notification_permissions-jetified-window-java-1.0.0-beta04-2 C:\Users\mosta\.gradle\caches\transforms-3\920f8d37b395da2a597a2bddca254efa\transformed\jetified-window-java-1.0.0-beta04\res
+com.vanethos.notification_permissions-core-1.6.0-3 C:\Users\mosta\.gradle\caches\transforms-3\e45814696c6e3f1db2d92d68f71c7abc\transformed\core-1.6.0\res
+com.vanethos.notification_permissions-main-4 C:\Users\mosta\AppData\Local\Pub\Cache\hosted\pub.dev\notification_permissions-0.6.1\android\src\main\res
+com.vanethos.notification_permissions-release-5 C:\Users\mosta\AppData\Local\Pub\Cache\hosted\pub.dev\notification_permissions-0.6.1\android\src\release\res
+com.vanethos.notification_permissions-pngs-6 D:\mostafa\work\mohammed\ResearchApp\build\notification_permissions\generated\res\pngs\release
+com.vanethos.notification_permissions-resValues-7 D:\mostafa\work\mohammed\ResearchApp\build\notification_permissions\generated\res\resValues\release
+com.vanethos.notification_permissions-rs-8 D:\mostafa\work\mohammed\ResearchApp\build\notification_permissions\generated\res\rs\release
+com.vanethos.notification_permissions-mergeReleaseResources-9 D:\mostafa\work\mohammed\ResearchApp\build\notification_permissions\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.vanethos.notification_permissions-mergeReleaseResources-10 D:\mostafa\work\mohammed\ResearchApp\build\notification_permissions\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.vanethos.notification_permissions-merged_res-11 D:\mostafa\work\mohammed\ResearchApp\build\notification_permissions\intermediates\merged_res\release
