@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ProfessorHomeSCreen extends StatelessWidget {
-  const ProfessorHomeSCreen({Key? key}) : super(key: key);
+  final String name;
+  ProfessorHomeSCreen({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: Text('$name'),
+      ),
+    );
   }
 }

@@ -80,10 +80,23 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
             CacheHelper.setData(key: "token", value: state.response['token']);
             String userType = CacheHelper.getData(key: "type") ?? "";
             if (userType == "professor") {
-              RoutesManager.navigatorAndRemove(context, ProfessorHomeSCreen());
+              RoutesManager.navigatorAndRemove(
+                  context, ProfessorHomeSCreen(name: name));
             } else if (userType == "researcher") {
               RoutesManager.navigatorAndRemove(
                   context, ResearcherHomeScreen(name: name));
+            } else if (userType == "student") {
+              RoutesManager.navigatorAndRemove(
+                  context,
+                  QuestionScreen(
+                    userName: nameController.text.trim(),
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
+                    mobile: phoneController.text,
+                    userGender: userGender,
+                    date: dateController.text,
+                    userType: widget.userType,
+                  ));
             }
           } else if (state is RegisterError) {
             CreatToast().showToast(
@@ -474,7 +487,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                                         padding: EdgeInsets.only(left: 10.0),
                                         child: Icon(
                                           Icons.arrow_back_ios,
-                                          color: mainColor,
+                                          color: Colors.white,
                                         ),
                                       ),
                                     ),
@@ -558,7 +571,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                                         padding: EdgeInsets.only(left: 10.0),
                                         child: Icon(
                                           Icons.arrow_forward_ios,
-                                          color: mainColor,
+                                          color: Colors.white,
                                         ),
                                       ),
                                     ),

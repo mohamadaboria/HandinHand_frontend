@@ -41,7 +41,7 @@ class BottomButton extends StatelessWidget {
               width: 50,
               child: Icon(
                 Icons.arrow_forward,
-                color: Colors.white,
+                color: mainColor,
               ),
             ),
             style: ElevatedButton.styleFrom(
