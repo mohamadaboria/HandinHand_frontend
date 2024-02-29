@@ -47,12 +47,28 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_messaging: ^14.7.10
   firebase_analytics: ^10.8.0
-  notification_permissions: ^0.6.1
-  permission_handler: ^11.0.1
   signature: ^5.4.1
+  app_settings: ^5.1.1
+  flutter_local_notifications: ^16.3.2
+  animate_do: ^3.3.3
+  google_nav_bar: ^5.0.6
+  http: ^1.1.0
+  path_provider: ^2.1.2
+  flutter_screenutil: ^5.9.0
+  awesome_dialog: ^3.2.0
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+  unique_identifier:
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.jpeg"
 
 
 
@@ -91,10 +107,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Cairo
+     - family: Opensans
        fonts:
-         - asset: assets/fonts/cairo/Cairo-Bold.ttf
-         - asset: assets/fonts/cairo/Cairo-Regular.ttf
+         - asset: assets/fonts/opensans/OpenSans-Bold.ttf
+         - asset: assets/fonts/opensans/OpenSans-Regular.ttf
 
   #   - family: Trajan Pro
   #     fonts:

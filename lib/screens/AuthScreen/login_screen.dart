@@ -14,7 +14,7 @@ import '../../common_widget/create_toast.dart';
 import '../../providers/language_provider.dart';
 import '../professor_screen/professor_home_screen.dart';
 import '../researcher_screen/researcher_home_screen.dart';
-import '../studenthomescreen.dart';
+import '../student_screen/studenthomescreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -30,67 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   var formKey = GlobalKey<FormState>();
   LanguageProvider? languageProvider;
-  // void requestspermission() async {
-  //   FirebaseMessaging messaging = FirebaseMessaging.instance;
-  //   NotificationSettings notificationSettings =
-  //       await messaging.requestPermission(
-  //           alert: true,
-  //           announcement: true,
-  //           badge: true,
-  //           carPlay: true,
-  //           criticalAlert: true,
-  //           provisional: true,
-  //           sound: true);
-  //   if (notificationSettings.authorizationStatus ==
-  //       AuthorizationStatus.authorized) {
-  //     print('ok authorized');
-  //   } else if (notificationSettings.authorizationStatus ==
-  //       AuthorizationStatus.authorized) {
-  //     print('ok authorized');
-  //   } else {
-  //     print('user denied ');
-  //   }
-  // }
-
-  // void requestNotificationPermission() async {
-  //   // print('karim');
-  //   FirebaseMessaging messaging = FirebaseMessaging.instance;
-  //   await messaging.requestPermission(
-  //     alert: true,
-  //     announcement: false,
-  //     badge: true,
-  //     carPlay: false,
-  //     criticalAlert: false,
-  //     provisional: false,
-  //     sound: true,
-  //   );
-  // }
-  //
-  // @override
-
-  // requestpermission() async {
-  //   await Permission.notification.isDenied.then((value) {
-  //     if (value) {
-  //       ToastContext().init(context);
-  //       Toast.show(
-  //         '${Permission.notification.request()}',
-  //         textStyle: TextStyle(fontSize: 18, color: Colors.white),
-  //         duration: Toast.lengthLong,
-  //         gravity: Toast.center,
-  //         backgroundRadius: 10,
-  //         backgroundColor: mainColor,
-  //       );
-  //
-  //     }
-  //   });
-  // }
-  // Future<void> requestPermission() async {
-  //   final permission = Permission.accessNotificationPolicy;
-  //
-  //   if (await permission.isDenied) {
-  //     await permission.request();
-  //   }
-  // }
 
   @override
   void initState() {
@@ -117,11 +56,9 @@ class _LoginScreenState extends State<LoginScreen> {
               RoutesManager.navigatorAndRemove(
                   context, ProfessorHomeSCreen(name: name));
             } else if (userType == "researcher") {
-              RoutesManager.navigatorAndRemove(
-                  context, ResearcherHomeScreen(name: name));
+              RoutesManager.navigatorAndRemove(context, ResearcherHomeScreen());
             } else if (userType == "student") {
-              RoutesManager.navigatorAndRemove(
-                  context, StudentHomeScreen(name: name));
+              RoutesManager.navigatorAndRemove(context, StudentHomeScreen());
             }
           }
           if (state is LoginError) {
@@ -134,7 +71,6 @@ class _LoginScreenState extends State<LoginScreen> {
         builder: (context, state) {
           AuthCubit cubit = AuthCubit.get(context);
           return Scaffold(
-            // backgroundColor: mainColor.withOpacity(0.1),
             body: SafeArea(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
@@ -158,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
-                              fontFamily: 'Cairo'),
+                              fontFamily: 'Opensans'),
                         ),
                         const SizedBox(
                           height: 10,
@@ -227,17 +163,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        // TextButton(
-                        //   onPressed: () {},
-                        //   child: Container(
-                        //     alignment: Alignment.topRight,
-                        //     child: const Text('forget password',
-                        //         style: TextStyle(
-                        //             color: mainColor,
-                        //             fontFamily: 'Cairo',
-                        //             fontWeight: FontWeight.w700)),
-                        //   ),
-                        // ),
                         const SizedBox(
                           height: 20,
                         ),
@@ -250,31 +175,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                     cubit.login(
                                         value: emailController.text,
                                         password: passwordController.text);
-
-                                    // if (emailController.text.isEmpty) {
-                                    //   CreatToast().showToast(
-                                    //     errorMessage:
-                                    //         "Email or Mobile is required",
-                                    //     context: context,
-                                    //   );
-                                    // } else if (passwordController
-                                    //     .text.isEmpty) {
-                                    //   CreatToast().showToast(
-                                    //     errorMessage: "Password is required",
-                                    //     context: context,
-                                    //   );
-                                    // } else if (passwordController.text.length <
-                                    //     8) {
-                                    //   CreatToast().showToast(
-                                    //     errorMessage:
-                                    //         "Password must not less than 8",
-                                    //     context: context,
-                                    //   );
-                                    // } else {
-                                    //   cubit.login(
-                                    //       value: emailController.text,
-                                    //       password: passwordController.text);
-                                    // }
                                   }
                                 },
                                 elevation: 0,
@@ -295,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             const Text(
                               'Don`t have an account?',
-                              style: TextStyle(fontFamily: 'Cairo'),
+                              style: TextStyle(fontFamily: 'Opensans'),
                             ),
                             const SizedBox(
                               width: 5,
@@ -314,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: const Text(
                                   'Register',
                                   style: TextStyle(
-                                      fontFamily: 'Cairo',
+                                      fontFamily: 'Opensans',
                                       fontWeight: FontWeight.bold,
                                       color: mainColor),
                                 ))

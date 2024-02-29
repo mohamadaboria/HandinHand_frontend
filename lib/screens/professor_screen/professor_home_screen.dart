@@ -9,7 +9,7 @@ class ProfessorHomeSCreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text('$name'),
+        child: Text(name),
       ),
     );
   }

@@ -1,11 +1,13 @@
+import 'package:dio/dio.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:research_app/app_manager/local_data.dart';
 import 'package:research_app/cubit/application_states/auth_states.dart';
 import 'package:research_app/model/user_model.dart';
-import 'package:dio/dio.dart';
 import 'package:research_app/utilities/cache_helper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../screens/notfications/notfications_services.dart';
 
 class AuthCubit extends Cubit<AuthStates> {
   AuthCubit() : super(AuthInitialState());
@@ -30,11 +32,6 @@ class AuthCubit extends Cubit<AuthStates> {
       throw Exception('No user type selected');
     }
   }
-
-  // void saveUserType({required String type}) {
-  //   userType = type;
-  //   emit(SavedType());
-  // }
 
   String? userGender;
   void saveUserGender({required String gender}) {
@@ -83,8 +80,6 @@ class AuthCubit extends Cubit<AuthStates> {
 
     try {
       emit(RegisterLoading());
-      String? userType = this.userType;
-      String? userGender = this.userGender;
 
       var response = await dio.post(baseUrl + "/users/register", data: parms);
 
@@ -130,6 +125,7 @@ class AuthCubit extends Cubit<AuthStates> {
     Map<String, dynamic> params = {
       "value": value,
       "password": password,
+      "fbToken": await FirebaseMessaging.instance.getToken()
     };
 
     try {
@@ -140,10 +136,12 @@ class AuthCubit extends Cubit<AuthStates> {
         String token = response.data['token'];
         String value = response.data?['value'] ?? '';
         String password = response.data?['password'] ?? '';
+        String name = response.data?['name'] ?? '';
 
         CacheHelper.setData(key: "token", value: token);
         CacheHelper.setData(key: "value", value: value);
         CacheHelper.setData(key: "password", value: password);
+        CacheHelper.setData(key: "name", value: name);
         emit(LoginSuccess(response: response.data));
         print(CacheHelper.getData(key: "value"));
       }
@@ -158,7 +156,7 @@ class AuthCubit extends Cubit<AuthStates> {
 
       emit(LoginError(errorMessage));
     } catch (e) {
-      emit(RegisterError('An error occurred.'));
+      emit(LoginError('An error occurred.'));
     }
   }
 
@@ -179,14 +177,12 @@ class AuthCubit extends Cubit<AuthStates> {
       String question = questions[i];
       String? answer = answers?[i];
 
-      // Handle specific formatting based on the user type or question type
       formattedAnswers[question] = formatAnswer(userType, question, answer);
     }
 
     return formattedAnswers;
   }
 
-// Handle specific formatting based on the user type or question type
   String formatAnswer(String userType, String question, String? answer) {
     switch (question) {
       case 'dominant hand ?':

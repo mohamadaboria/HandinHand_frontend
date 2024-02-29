@@ -5,7 +5,7 @@ class DioHelper {
 
   static void init() {
     dio = Dio(BaseOptions(
-      baseUrl: 'https://handinhand.onrender.com/api/v1',
+      baseUrl: 'https://educationalapp.onrender.com/api/v1',
       receiveDataWhenStatusError: true,
     ));
   }

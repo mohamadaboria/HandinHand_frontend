@@ -9,7 +9,7 @@ import 'package:research_app/common_widget/create_loading.dart';
 import 'package:research_app/cubit/Auth_cubit/auth_cubit.dart';
 import 'package:research_app/cubit/application_states/auth_states.dart';
 import 'package:research_app/screens/researcher_screen/researcher_home_screen.dart';
-import 'package:research_app/screens/question_screen.dart';
+import 'package:research_app/screens/student_screen/question_screen.dart';
 import '../../app_manager/routes_manager.dart';
 import '../../common_widget/create_text_field.dart';
 import '../../common_widget/create_toast.dart';
@@ -58,7 +58,6 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
 
   @override
   void initState() {
-    // CacheHelper.registerClear();
     super.initState();
   }
 
@@ -83,8 +82,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
               RoutesManager.navigatorAndRemove(
                   context, ProfessorHomeSCreen(name: name));
             } else if (userType == "researcher") {
-              RoutesManager.navigatorAndRemove(
-                  context, ResearcherHomeScreen(name: name));
+              RoutesManager.navigatorAndRemove(context, ResearcherHomeScreen());
             } else if (userType == "student") {
               RoutesManager.navigatorAndRemove(
                   context,
@@ -127,7 +125,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                           'Sign Up',
                           style: TextStyle(
                               fontSize: 22,
-                              fontFamily: 'Cairo',
+                              fontFamily: 'Opensans',
                               fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(
@@ -154,7 +152,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                               keyboardType: TextInputType.text,
                               label: "Name",
                               labelStyle: const TextStyle(
-                                fontFamily: 'Cairo',
+                                fontFamily: 'Opensans',
                                 color: greyColor,
                               ),
                             ),
@@ -185,7 +183,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                               keyboardType: TextInputType.emailAddress,
                               label: "Email",
                               labelStyle: const TextStyle(
-                                  color: greyColor, fontFamily: 'Cairo'),
+                                  color: greyColor, fontFamily: 'Opensans'),
                             ),
                           ],
                         ),
@@ -224,7 +222,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                                 ),
                               ),
                               labelStyle: TextStyle(
-                                  fontFamily: 'Cairo',
+                                  fontFamily: 'Opensans',
                                   color: Colors.grey.withOpacity(0.5)),
                             ),
                           ],
@@ -253,18 +251,13 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                               controller: phoneController,
                               label: "Mobile",
                               labelStyle: const TextStyle(
-                                  color: greyColor, fontFamily: 'Cairo'),
+                                  color: greyColor, fontFamily: 'Opensans'),
                             ),
                           ],
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        // SvgPicture.asset(
-                        //   "assets/images/family_restroom_FILL0_wght400_GRAD0_opsz24.svg",
-                        //   width: 50,
-                        //   height: 50,
-                        // ),
                         Text(
                           'Gender',
                           style: BlackTitle.display5(context).copyWith(
@@ -346,7 +339,6 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                         ),
                         Row(
                           children: [
-                            // Icon(Icons.calendar_today_outlined),
                             IconButton(
                               onPressed: () {
                                 _selectDate(context);
@@ -357,6 +349,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                               ),
                             ),
                             CreatTextField(
+                              width: getSize(context: context).width * 0.67,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return "Birth date is required";
@@ -369,7 +362,7 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                               },
                               label: 'Select Date',
                               labelStyle: TextStyle(
-                                  fontFamily: 'Cairo',
+                                  fontFamily: 'Opensans',
                                   color: Colors.grey.withOpacity(0.5)),
                               keyboardType: TextInputType.datetime,
                               onTap: () {
@@ -398,58 +391,6 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                                           birthDate: dateController.text,
                                           userType: widget.userType,
                                         );
-                                        // if (nameController.text.isEmpty) {
-                                        //   CreatToast().showToast(
-                                        //     errorMessage: "Name is required",
-                                        //     context: context,
-                                        //   );
-                                        // }
-                                        // else if (emailController.text.isEmpty) {
-                                        //   CreatToast().showToast(
-                                        //     errorMessage: "Email is required",
-                                        //     context: context,
-                                        //   );
-                                        // }
-                                        // else if (passwordController.text.isEmpty) {
-                                        //   CreatToast().showToast(
-                                        //     errorMessage: "Password is required",
-                                        //     context: context,
-                                        //   );
-                                        // }
-                                        // else if (passwordController.text.length <
-                                        //     8) {
-                                        //   CreatToast().showToast(
-                                        //     errorMessage:
-                                        //         "Password must not less than 8",
-                                        //     context: context,
-                                        //   );
-                                        // }
-                                        // else if (phoneController.text.isEmpty) {
-                                        //   CreatToast().showToast(
-                                        //     errorMessage: "Mobile is required",
-                                        //     context: context,
-                                        //   );
-                                        // }
-                                        // else if (dateController.text.isEmpty) {
-                                        //   CreatToast().showToast(
-                                        //     errorMessage: "Birth date is required",
-                                        //     context: context,
-                                        //   );
-                                        // } else {
-                                        //   // print(
-                                        //   //     "User Type before registration: ${registerCubit.userType}");
-                                        //   registerCubit.register(
-                                        //     name: nameController.text,
-                                        //     email: emailController.text,
-                                        //     mobile: phoneController.text,
-                                        //     password: passwordController.text,
-                                        //     userGender: userGender,
-                                        //     birthDate: dateController.text,
-                                        //     userType: widget.userType,
-                                        //   );
-                                        //   // print(
-                                        //   //     "User Type after registration${registerCubit.userType}");
-                                        // }
                                       }
                                     },
                                     elevation: 0,
@@ -468,27 +409,20 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                            blurRadius: 0.3,
-                                            blurStyle: BlurStyle.outer,
-                                            spreadRadius: 2,
-                                            offset: Offset(3, 3),
-                                            color: mainColor)
-                                      ],
-                                    ),
+                                    alignment: Alignment.center,
+                                    height: 45,
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white,
+                                        border: Border.all(color: mainColor)),
                                     child: IconButton(
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      icon: const Padding(
-                                        padding: EdgeInsets.only(left: 10.0),
-                                        child: Icon(
-                                          Icons.arrow_back_ios,
-                                          color: Colors.white,
-                                        ),
+                                      icon: Icon(
+                                        Icons.arrow_back,
+                                        color: mainColor,
                                       ),
                                     ),
                                   ),
@@ -528,17 +462,12 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                                             fontWeight: FontWeight.bold),
                                       )),
                                   Container(
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                            blurRadius: 0.2,
-                                            blurStyle: BlurStyle.outer,
-                                            spreadRadius: 2,
-                                            offset: Offset(3, 3),
-                                            color: mainColor)
-                                      ],
-                                    ),
+                                    height: 45,
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white,
+                                        border: Border.all(color: mainColor)),
                                     child: IconButton(
                                       onPressed: () {
                                         if (formKey.currentState!.validate()) {
@@ -568,10 +497,10 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
                                         }
                                       },
                                       icon: const Padding(
-                                        padding: EdgeInsets.only(left: 10.0),
+                                        padding: EdgeInsets.only(left: 0.0),
                                         child: Icon(
-                                          Icons.arrow_forward_ios,
-                                          color: Colors.white,
+                                          Icons.arrow_forward,
+                                          color: mainColor,
                                         ),
                                       ),
                                     ),
@@ -588,141 +517,3 @@ class _CompleteRegisterScreenState extends State<CompleteRegisterScreen> {
         }));
   }
 }
-// GestureDetector(
-//   onTap: () {
-//     setState(() {
-//       isStrechedDropDown = !isStrechedDropDown;
-//     });
-//   },
-//   child: Container(
-//     width: double.infinity,
-//     padding: const EdgeInsets.symmetric(horizontal: 5),
-//     child: SafeArea(
-//       child: Column(
-//         children: [
-//           Row(
-//             crossAxisAlignment:
-//                 CrossAxisAlignment.start,
-//             children: [
-//               Expanded(
-//                   child: Container(
-//                 decoration: BoxDecoration(
-//                     border:
-//                         Border.all(color: greyColor),
-//                     borderRadius:
-//                         const BorderRadius.all(
-//                             Radius.circular(8))),
-//                 child: Column(
-//                   children: [
-//                     Container(
-//                         // height: 45,
-//                         width: double.infinity,
-//                         padding: const EdgeInsets.only(
-//                           right: 10,
-//                           bottom: 0,
-//                         ),
-//                         decoration: BoxDecoration(
-//                             border: Border.all(
-//                               color: const Color(
-//                                   0xffbbbbbb),
-//                             ),
-//                             borderRadius:
-//                                 const BorderRadius.all(
-//                                     Radius.circular(
-//                                         8))),
-//                         constraints:
-//                             const BoxConstraints(
-//                           minHeight: 35,
-//                           minWidth: double.infinity,
-//                         ),
-//                         alignment: Alignment.center,
-//                         child: Row(
-//                           mainAxisAlignment:
-//                               MainAxisAlignment
-//                                   .spaceBetween,
-//                           children: [
-//                             Expanded(
-//                               child: Padding(
-//                                 padding:
-//                                     const EdgeInsets
-//                                         .symmetric(
-//                                   horizontal: 5,
-//                                 ),
-//                                 child: Text(
-//                                   title,
-//                                 ),
-//                               ),
-//                             ),
-//                             GestureDetector(
-//                                 onTap: () {
-//                                   setState(() {
-//                                     isStrechedDropDown =
-//                                         !isStrechedDropDown;
-//                                   });
-//                                 },
-//                                 child: Icon(
-//                                     isStrechedDropDown
-//                                         ? Icons
-//                                             .arrow_upward
-//                                         : Icons
-//                                             .arrow_downward))
-//                           ],
-//                         )),
-//                     ExpandedSection(
-//                       expand: isStrechedDropDown,
-//                       height: 5,
-//                       child: MyScrollbar(
-//                         builder: (context,
-//                                 scrollController2) =>
-//                             ListView.builder(
-//                                 padding:
-//                                     const EdgeInsets
-//                                         .all(0),
-//                                 controller:
-//                                     scrollController2,
-//                                 shrinkWrap: true,
-//                                 itemCount: _list.length,
-//                                 itemBuilder:
-//                                     (context, index) {
-//                                   return RadioListTile(
-//                                       contentPadding:
-//                                           EdgeInsets
-//                                               .zero,
-//                                       title: Padding(
-//                                         padding:
-//                                             const EdgeInsets
-//                                                 .only(
-//                                                 right:
-//                                                     20.0),
-//                                         child: Text(_list
-//                                             .elementAt(
-//                                                 index)),
-//                                       ),
-//                                       value: index,
-//                                       groupValue:
-//                                           groupValue,
-//                                       onChanged: (val) {
-//                                         setState(() {
-//                                           groupValue =
-//                                               val;
-//                                           title = _list
-//                                               .elementAt(
-//                                                   index);
-//                                         });
-//                                         print(title);
-//                                       });
-//                                 }),
-//                         scrollController:
-//                             _scrollController,
-//                       ),
-//                     )
-//                   ],
-//                 ),
-//               )),
-//             ],
-//           )
-//         ],
-//       ),
-//     ),
-//   ),
-// ),

@@ -2,4 +2,109 @@ abstract class MainStates {}
 
 class InitialState extends MainStates {}
 
-class Saved extends MainStates {}
+////////////////////////////////////// Create research form sates ///////////////////////////////////////////////////////
+class CreateResearchLoadingState extends MainStates {}
+
+class CreateResearchSuccessState extends MainStates {
+  var response;
+  CreateResearchSuccessState({this.response});
+}
+
+class CreateResearchErrorState extends MainStates {
+  final String errormessage;
+  CreateResearchErrorState(this.errormessage);
+}
+
+class HandState extends MainStates {}
+
+class LanguageState extends MainStates {}
+
+class VisionState extends MainStates {}
+
+class HearingNormalAState extends MainStates {}
+
+class OriginState extends MainStates {}
+
+class ADHDState extends MainStates {}
+
+class MusicalBackgroundState extends MainStates {}
+
+/////////////////////////// Get  Researcher Researches States /////////////////////////////////////////////////////////////////////////
+
+class GetResearchesLoadingState extends MainStates {}
+
+class GetResearchesSuccessState extends MainStates {}
+
+class GetResearchesErrorState extends MainStates {
+  final String errorMessage;
+
+  GetResearchesErrorState(this.errorMessage);
+}
+
+/////////////////////////// Get  Student Researches States /////////////////////////////////////////////////////////////////////////
+class GetStudentResearchesLoadingState extends MainStates {}
+
+class GetStudentResearchesSuccessState extends MainStates {}
+
+class GetStudentResearchesErrorState extends MainStates {
+  final String errorMessage;
+
+  GetStudentResearchesErrorState(this.errorMessage);
+}
+///////////////////////////////// Register Research /////////////////////////////////////////////////////////////
+
+class StudentRegisterResearchLoadingState extends MainStates {}
+
+class StudentRegisterResearchSuccessState extends MainStates {}
+
+class StudentRegisterResearchErrorState extends MainStates {
+  final String errorMessage;
+
+  StudentRegisterResearchErrorState(this.errorMessage);
+}
+
+////////////////////////////// change tabbar state /////////////////////////
+class StudentChangeTabBarState extends MainStates {}
+
+////////////////////////////////////// get student researchese based on status ////////////////////
+
+class GetStudentResearchesStatusLoadingState extends MainStates {}
+
+class GetStudentResearchesSuccessStatusState extends MainStates {}
+
+class GetStudentResearchesErrorStatusState extends MainStates {
+  final String errorMessage;
+
+  GetStudentResearchesErrorStatusState(this.errorMessage);
+}
+
+///////////////////////////////////// Accept or Reject student Research ////////////////////////////////////
+// class AcceptOrRefuseLoadingState extends MainStates {}
+
+class AcceptLoadingState extends MainStates {}
+
+class RefuseLoadingState extends MainStates {}
+
+class AcceptSuccessStatusState extends MainStates {}
+
+class AcceptErrorStatusState extends MainStates {
+  final String errorMessage;
+
+  AcceptErrorStatusState(this.errorMessage);
+}
+
+class RefusedSuccessStatusState extends MainStates {}
+
+class RefusedErrorStatusState extends MainStates {
+  final String errorMessage;
+
+  RefusedErrorStatusState(this.errorMessage);
+}
+
+///////////////////////////////////////// notification //////////////////////////////
+
+class NotificationLoading extends MainStates {}
+
+class NotificationSuccess extends MainStates {}
+
+class NotificationError extends MainStates {}

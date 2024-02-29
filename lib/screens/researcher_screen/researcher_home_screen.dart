@@ -1,38 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:research_app/app_manager/routes_manager.dart';
-import 'package:research_app/common_widget/create_button.dart';
-import 'package:research_app/screens/researcher_screen/MyResearcherScreen.dart';
-import 'package:research_app/screens/researcher_screen/researcher_form.dart';
-import 'package:research_app/utilities/text_style.dart';
+import 'package:research_app/app_manager/local_data.dart';
+import 'package:research_app/screens/researcher_screen/researcher_main_screen.dart';
+import 'package:research_app/screens/researcher_screen/researcher_notfication_screen.dart';
+import 'package:research_app/screens/researcher_screen/researcher_settings_screen.dart';
+import 'package:research_app/screens/researcher_screen/researches_screen.dart';
 
-import 'ResarcherNotficationScreen.dart';
+import '../notfications/notfications_services.dart';
+import 'active_student_screen.dart';
 
-class ResearcherHomeScreen extends StatelessWidget {
-  final String name;
-  ResearcherHomeScreen({super.key, required this.name});
+class ResearcherHomeScreen extends StatefulWidget {
+  ResearcherHomeScreen({super.key});
+
+  @override
+  State<ResearcherHomeScreen> createState() => _ResearcherHomeScreenState();
+}
+
+class _ResearcherHomeScreenState extends State<ResearcherHomeScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    NotificationsServices().firebaseInit(context);
+    NotificationsServices.foregroundMessage();
+    super.initState();
+  }
+
+  int selectedIndex = 0;
+
   List screens = [
-    MyResearcherScreen(),
-    ResarcherNotficationScreen(),
+    ResearcherMainScreen(),
+    ResearchesScreen(),
+    ActiveStudentScreen(),
+    ResearcherSettingsScreen(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: CreateButton(
-              title: 'Create Research',
-              onTap: () {
-                RoutesManager.navigatorAndRemove(
-                    context, ResearcherFormScreen());
-              },
-            ),
-          ),
-          // BottomNavigationBar(),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: mainColor,
+        currentIndex: selectedIndex,
+        type: BottomNavigationBarType.fixed,
+        onTap: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.manage_search_rounded), label: 'Researches'),
+         
+          BottomNavigationBarItem(
+              icon: Icon(Icons.check_circle_outline), label: 'Active '),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: 'Settings'),
         ],
       ),
+      body: screens[selectedIndex],
     );
   }
 }
