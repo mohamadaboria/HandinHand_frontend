@@ -7,7 +7,7 @@ Size getSize({
   return size;
 }
 
-const String baseUrl = "https://educationalapp.onrender.com/api/v1";
+const String baseUrl = "https://handinhand.onrender.com/api/v1";
 const Color mainColor = Color(0xff0563f1);
 const Color whiteColor = Colors.white;
 const Color greyColor = Color(0xffE0E0E0);

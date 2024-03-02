@@ -29,6 +29,7 @@ class _ResearcherHomeScreenState extends State<ResearcherHomeScreen> {
   List screens = [
     ResearcherMainScreen(),
     ResearchesScreen(),
+    ResearcherNotificationScreen(),
     ActiveStudentScreen(),
     ResearcherSettingsScreen(),
   ];
@@ -49,7 +50,8 @@ class _ResearcherHomeScreenState extends State<ResearcherHomeScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
               icon: Icon(Icons.manage_search_rounded), label: 'Researches'),
-         
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notification_add), label: 'Notification'),
           BottomNavigationBarItem(
               icon: Icon(Icons.check_circle_outline), label: 'Active '),
           BottomNavigationBarItem(

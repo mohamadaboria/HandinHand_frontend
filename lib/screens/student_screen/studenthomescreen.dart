@@ -19,7 +19,7 @@ class StudentHomeScreen extends StatefulWidget {
 class _StudentHomeScreenState extends State<StudentHomeScreen> {
   @override
   void initState() {
-    MainCubit.get(context).getStudentResearches();
+    // MainCubit.get(context).getStudentResearches();
     NotificationsServices().firebaseInit(context);
     NotificationsServices.foregroundMessage();
     super.initState();
@@ -28,6 +28,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
   List screens = [
     StudentMainScreen(),
     StudentResearchesScreen(),
+    StudentNotificationScreen(),
     StudentSettingsScreen(),
   ];
   int selectedIndex = 0;
@@ -55,7 +56,8 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.manage_search_rounded), label: 'Researches'),
-         
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.notification_add), label: 'Notification'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.settings), label: 'Settings'),
             ],

@@ -192,8 +192,8 @@ class _StudentResearchesScreenState extends State<StudentResearchesScreen> {
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Card(
-                                  elevation: 0.4,
-                                  color: mainColor.withOpacity(0.1),
+                                  elevation: 2,
+                                  shadowColor: thirdColor,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
@@ -351,47 +351,6 @@ class _StudentResearchesScreenState extends State<StudentResearchesScreen> {
                                                 '$formattedDate',
                                                 style: BlackLabel.display5(
                                                     context),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 8.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Wrap(
-                                                children: [
-                                                  Icon(
-                                                    Icons
-                                                        .question_answer_rounded,
-                                                    color: mainColor,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    'Research Description :',
-                                                    style: BlackTitle.display5(
-                                                        context),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            top: 0.0),
-                                                    child: Text(
-                                                      "${research.description}",
-                                                      style:
-                                                          BlackTitle.display5(
-                                                              context),
-                                                    ),
-                                                  )
-                                                ],
                                               ),
                                             ],
                                           ),
@@ -491,8 +450,8 @@ class _StudentResearchesScreenState extends State<StudentResearchesScreen> {
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Card(
-                                  elevation: 0.4,
-                                  color: mainColor.withOpacity(0.1),
+                                  elevation: 2,
+                                  shadowColor: thirdColor,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
@@ -676,9 +635,6 @@ class _StudentResearchesScreenState extends State<StudentResearchesScreen> {
                                                     style: BlackTitle.display5(
                                                         context),
                                                   ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
                                                   Padding(
                                                     padding:
                                                         const EdgeInsets.only(
@@ -687,48 +643,9 @@ class _StudentResearchesScreenState extends State<StudentResearchesScreen> {
                                                       "${research.description}",
                                                       style:
                                                           BlackTitle.display5(
-                                                              context),
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 8.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Wrap(
-                                                children: [
-                                                  Icon(
-                                                    Icons
-                                                        .question_answer_rounded,
-                                                    color: mainColor,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    'Research Description :',
-                                                    style: BlackTitle.display5(
-                                                        context),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            top: 0.0),
-                                                    child: Text(
-                                                      "${research.description}",
-                                                      style:
-                                                          BlackTitle.display5(
-                                                              context),
+                                                                  context)
+                                                              .copyWith(
+                                                                  fontSize: 12),
                                                     ),
                                                   )
                                                 ],
@@ -788,8 +705,8 @@ class _StudentResearchesScreenState extends State<StudentResearchesScreen> {
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Card(
-                                  elevation: 0.4,
-                                  color: mainColor.withOpacity(0.1),
+                                  elevation: 2,
+                                  shadowColor: thirdColor,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
@@ -947,47 +864,6 @@ class _StudentResearchesScreenState extends State<StudentResearchesScreen> {
                                                 '$formattedDate',
                                                 style: BlackLabel.display5(
                                                     context),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 8.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Wrap(
-                                                children: [
-                                                  Icon(
-                                                    Icons
-                                                        .question_answer_rounded,
-                                                    color: mainColor,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    'Research Description :',
-                                                    style: BlackTitle.display5(
-                                                        context),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            top: 0.0),
-                                                    child: Text(
-                                                      "${research.description}",
-                                                      style:
-                                                          BlackTitle.display5(
-                                                              context),
-                                                    ),
-                                                  )
-                                                ],
                                               ),
                                             ],
                                           ),

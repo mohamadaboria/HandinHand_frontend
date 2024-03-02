@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:research_app/app_manager/local_data.dart';
 import 'package:research_app/utilities/cache_helper.dart';
 
+import '../model/accepted_student_researcher_model.dart';
 import '../model/notfication_model.dart';
 import '../model/researches_model.dart';
 import '../model/researches_student_status_model.dart';
@@ -455,6 +456,7 @@ class MainCubit extends Cubit<MainStates> {
 
   Future<void> getStudentResearches() async {
     studentResearchesList.clear();
+    emit(GetStudentResearchesLoadingState());
     try {
       dio.options.headers = {
         "Authorization": "Bearer ${CacheHelper.getData(key: "token")}"
@@ -465,6 +467,7 @@ class MainCubit extends Cubit<MainStates> {
         (response.data as List).forEach((element) {
           studentResearchesList.add(StudentResearchesModel.fromJson(element));
         });
+        print(" studentResearchesList :  ${studentResearchesList.length}");
         if (studentResearchesList.isNotEmpty) {
           for (int i = 0; i < studentResearchesList.length; i++) {
             CacheHelper.setData(
@@ -489,6 +492,7 @@ class MainCubit extends Cubit<MainStates> {
 ///////////////////////////////////////////////////// registration research ///////////////////////////
 
   Future<void> registerResearch() async {
+    print("${CacheHelper.getData(key: "_id")}");
     try {
       emit(StudentRegisterResearchLoadingState());
       dio.options.headers = {
@@ -497,7 +501,9 @@ class MainCubit extends Cubit<MainStates> {
 
       var response = await dio.put(baseUrl + "/students/research/register",
           data: {"research": "${CacheHelper.getData(key: "_id")}"});
+      print("${CacheHelper.getData(key: "_id")}");
       if (response.statusCode == 200) {
+        print(" ${CacheHelper.getData(key: "_id")}");
         emit(StudentRegisterResearchSuccessState());
       }
     } on DioException catch (e) {
@@ -660,6 +666,79 @@ class MainCubit extends Cubit<MainStates> {
     } on Exception catch (e) {
       emit(NotificationError());
       print(e.toString());
+    }
+  }
+
+  //////////////////////////////////////////////////////////////////////////// get accepted student /////////////////////
+
+  List<ResearchesAccepted> acceptedStudentList = [];
+
+  Future<void> getAcceptedStudentResearcher() async {
+    acceptedStudentList.clear();
+    emit(GetStudentAcceptLoadingState());
+    try {
+      dio.options.headers = {
+        "Authorization": "Bearer ${CacheHelper.getData(key: "token")}"
+      };
+
+      var response = await dio.get(baseUrl + "/researchers/students/accepted");
+      if (response.statusCode == 201) {
+        List<dynamic> data = response.data['researches'];
+
+        acceptedStudentList =
+            data.map((json) => ResearchesAccepted.fromJson(json)).toList();
+        print("acceptedStudentList  : ${acceptedStudentList.length}");
+        emit(GetStudentAcceptSuccessState());
+      }
+    } on DioException catch (e) {
+      String errorMessage = "";
+      if (e.response != null) {
+        errorMessage = e.response?.data['message'] ?? '';
+        print(errorMessage.toString());
+      }
+      emit(GetStudentAcceptedErrorState());
+    } on Exception catch (e) {
+      emit(GetStudentAcceptedErrorState());
+      print(e.toString());
+    }
+  }
+
+/////////////////////////////////////////////////////// send notification /////////////////////////
+
+  Future<void> sendNotification({
+    required String title,
+    required String body,
+    required String id,
+    required String user_id,
+  }) async {
+    Map<String, dynamic> params = {
+      "research": id,
+      "title": title,
+      "body": body,
+      "user": user_id,
+    };
+    try {
+      emit(SendNotificationLoading());
+      dio.options.headers = {
+        "Authorization": "Bearer ${CacheHelper.getData(key: 'token')}"
+      };
+      var response = await dio.post(baseUrl + "/messages/user", data: params);
+
+      if (response.statusCode! >= 200 && response.statusCode! < 300) {
+        emit(SendNotificationSuccess(response: response.data));
+      }
+    } on DioException catch (e) {
+      String errorMessage = "";
+
+      if (e.response != null) {
+        errorMessage = e.response!.data['message'] ?? 'An error occurred.';
+      } else {
+        errorMessage = 'An error occurred.';
+      }
+
+      emit(SendNotificationError());
+    } catch (e) {
+      emit(SendNotificationError());
     }
   }
 }
