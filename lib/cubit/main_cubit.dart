@@ -7,8 +7,10 @@ import 'package:research_app/app_manager/local_data.dart';
 import 'package:research_app/utilities/cache_helper.dart';
 
 import '../model/accepted_student_researcher_model.dart';
+import '../model/all_researcher_model.dart';
 import '../model/notfication_model.dart';
 import '../model/researches_model.dart';
+import '../model/researches_of_researcher_model.dart';
 import '../model/researches_student_status_model.dart';
 import '../model/student_researches_model.dart';
 import 'application_states/main_states.dart';
@@ -363,7 +365,7 @@ class MainCubit extends Cubit<MainStates> {
   Future<void> createResearch({
     required String researchQuestion,
     required String credits,
-    required Uint8List approvment,
+    required String approvment,
     required String description,
   }) async {
     Map<String, dynamic> params = {
@@ -739,6 +741,74 @@ class MainCubit extends Cubit<MainStates> {
       emit(SendNotificationError());
     } catch (e) {
       emit(SendNotificationError());
+    }
+  }
+
+/////////////////////////////////////////////////// Get aLL RESEARCHER /////////////////////////////////////
+
+  List<Researchers> getAllResearcherList = [];
+
+  Future<void> getAllreseracher() async {
+    getAllResearcherList.clear();
+    emit(GetAllResearcherLoading());
+    try {
+      var response = await dio.get(baseUrl + "/users/researchers");
+      if (response.statusCode == 200) {
+        List<dynamic> data = response.data['researchers'];
+
+        getAllResearcherList =
+            data.map((json) => Researchers.fromJson(json)).toList();
+        print("researchesList  : ${getAllResearcherList.length}");
+
+        emit(GetAllResearcherSuccess());
+      }
+    } on DioException catch (e) {
+      String errorMessage = "";
+
+      if (e.response != null) {
+        errorMessage = e.response!.data['message'] ?? 'An error occurred.';
+      } else {
+        errorMessage = 'An error occurred.';
+      }
+
+      emit(GetAllResearcherError());
+    } catch (e) {
+      emit(GetAllResearcherError());
+    }
+  }
+
+  //////////////////////////////////////////////////////////////////////////// get the researches of the researcher ////////////
+
+  List<ResearchesOfResearchers> researchesOfResearchersList = [];
+  Future<void> getResearchesOfResearchers({required String id}) async {
+    researchesOfResearchersList.clear();
+    emit(GetAllResearchesLoading());
+    try {
+      dio.options.headers = {
+        "Authorization": "Bearer ${CacheHelper.getData(key: "token")}"
+      };
+
+      var response =
+          await dio.get(baseUrl + "/researchers/researcher/researches/$id");
+      if (response.statusCode == 201) {
+        List<dynamic> data = response.data['researches'];
+        researchesOfResearchersList =
+            data.map((json) => ResearchesOfResearchers.fromJson(json)).toList();
+        print("success");
+        print(
+            "researches of researchers list :${researchesOfResearchersList.length}");
+        emit(GetAllResearchesSuccess()); // <-- Update this line
+      }
+    } on DioException catch (e) {
+      String errorMessage = "";
+      if (e.response != null) {
+        errorMessage = e.response?.data['message'] ?? '';
+        print(errorMessage.toString());
+      }
+      emit(GetAllResearchesError());
+    } on Exception catch (e) {
+      emit(GetAllResearchesError());
+      print(e.toString());
     }
   }
 }
