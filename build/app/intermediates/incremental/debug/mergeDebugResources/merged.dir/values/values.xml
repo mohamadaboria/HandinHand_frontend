@@ -127,13 +127,13 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
-    <string name="gcm_defaultSenderId" translatable="false">434184537309</string>
+    <string name="gcm_defaultSenderId" translatable="false">130193866403</string>
     <string name="gcm_fallback_notification_channel_label">Miscellaneous</string>
-    <string name="google_api_key" translatable="false">AIzaSyA4zEEQ3dmRkbimbTxB8CFL7g8GVlURKyw</string>
-    <string name="google_app_id" translatable="false">1:434184537309:android:355199817b61973730c734</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA4zEEQ3dmRkbimbTxB8CFL7g8GVlURKyw</string>
-    <string name="google_storage_bucket" translatable="false">handinhand-5cfb5.appspot.com</string>
-    <string name="project_id" translatable="false">handinhand-5cfb5</string>
+    <string name="google_api_key" translatable="false">AIzaSyBEMswVw2SejvVw9VPDSDgzKH5TfedS9qc</string>
+    <string name="google_app_id" translatable="false">1:130193866403:android:a92cc413b30dd50adfc916</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBEMswVw2SejvVw9VPDSDgzKH5TfedS9qc</string>
+    <string name="google_storage_bucket" translatable="false">handinhand-d6ded.appspot.com</string>
+    <string name="project_id" translatable="false">handinhand-d6ded</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         

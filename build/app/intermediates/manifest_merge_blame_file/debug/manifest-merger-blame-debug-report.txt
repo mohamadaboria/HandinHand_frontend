@@ -69,7 +69,7 @@
 37-->[androidx.core:core:1.9.0] C:\Users\Hade-\.gradle\caches\transforms-3\db1902df9817773e6766e28f06c58e5e\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 38        android:debuggable="true"
 39        android:icon="@mipmap/launcher_icon"
-40        android:label="research_app" >
+40        android:label="HandinHand" >
 41        <activity
 42            android:name="com.example.research_app.MainActivity"
 43            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

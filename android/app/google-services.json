@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "434184537309",
-    "project_id": "handinhand-5cfb5",
-    "storage_bucket": "handinhand-5cfb5.appspot.com"
+    "project_number": "130193866403",
+    "project_id": "handinhand-d6ded",
+    "storage_bucket": "handinhand-d6ded.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:434184537309:android:355199817b61973730c734",
+        "mobilesdk_app_id": "1:130193866403:android:a92cc413b30dd50adfc916",
         "android_client_info": {
           "package_name": "com.example.research_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA4zEEQ3dmRkbimbTxB8CFL7g8GVlURKyw"
+          "current_key": "AIzaSyBEMswVw2SejvVw9VPDSDgzKH5TfedS9qc"
         }
       ],
       "services": {

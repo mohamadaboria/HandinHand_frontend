@@ -44,38 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD308l9WtsnRRFQR3RCDSw-bXGtdfnG6d8',
-    appId: '1:434184537309:web:78a2f1d5d2f6c78830c734',
-    messagingSenderId: '434184537309',
-    projectId: 'handinhand-5cfb5',
-    authDomain: 'handinhand-5cfb5.firebaseapp.com',
-    storageBucket: 'handinhand-5cfb5.appspot.com',
-    measurementId: 'G-147T1SFBYS',
+    apiKey: 'AIzaSyD6BL2yoOAMrUAslusXWVigMjNYrj06adw',
+    appId: '1:130193866403:web:45f50bd61cf8f642dfc916',
+    messagingSenderId: '130193866403',
+    projectId: 'handinhand-d6ded',
+    authDomain: 'handinhand-d6ded.firebaseapp.com',
+    storageBucket: 'handinhand-d6ded.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA4zEEQ3dmRkbimbTxB8CFL7g8GVlURKyw',
-    appId: '1:434184537309:android:355199817b61973730c734',
-    messagingSenderId: '434184537309',
-    projectId: 'handinhand-5cfb5',
-    storageBucket: 'handinhand-5cfb5.appspot.com',
+    apiKey: 'AIzaSyBEMswVw2SejvVw9VPDSDgzKH5TfedS9qc',
+    appId: '1:130193866403:android:a92cc413b30dd50adfc916',
+    messagingSenderId: '130193866403',
+    projectId: 'handinhand-d6ded',
+    storageBucket: 'handinhand-d6ded.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAu3a1FHyzg7aavNSQZw9DksPE_ebtY44Q',
-    appId: '1:434184537309:ios:991de362e0db3a1b30c734',
-    messagingSenderId: '434184537309',
-    projectId: 'handinhand-5cfb5',
-    storageBucket: 'handinhand-5cfb5.appspot.com',
+    apiKey: 'AIzaSyAf08YnsSoArwZvosXETbfHt6QY8n6LHYg',
+    appId: '1:130193866403:ios:af32e835237e09cbdfc916',
+    messagingSenderId: '130193866403',
+    projectId: 'handinhand-d6ded',
+    storageBucket: 'handinhand-d6ded.appspot.com',
     iosBundleId: 'com.example.researchApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAu3a1FHyzg7aavNSQZw9DksPE_ebtY44Q',
-    appId: '1:434184537309:ios:fa041abecd0bf1d930c734',
-    messagingSenderId: '434184537309',
-    projectId: 'handinhand-5cfb5',
-    storageBucket: 'handinhand-5cfb5.appspot.com',
+    apiKey: 'AIzaSyAf08YnsSoArwZvosXETbfHt6QY8n6LHYg',
+    appId: '1:130193866403:ios:17795f39ab912023dfc916',
+    messagingSenderId: '130193866403',
+    projectId: 'handinhand-d6ded',
+    storageBucket: 'handinhand-d6ded.appspot.com',
     iosBundleId: 'com.example.researchApp.RunnerTests',
   );
 }
