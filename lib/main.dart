@@ -37,7 +37,6 @@ void main() async {
   await NotificationsServices.getToken();
   DioHelper.init();
 
-  NotificationsServices.getper();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(
