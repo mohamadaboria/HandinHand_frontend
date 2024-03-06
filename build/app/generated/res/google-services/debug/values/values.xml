@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">130193866403</string>
-    <string name="google_api_key" translatable="false">AIzaSyBEMswVw2SejvVw9VPDSDgzKH5TfedS9qc</string>
-    <string name="google_app_id" translatable="false">1:130193866403:android:a92cc413b30dd50adfc916</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBEMswVw2SejvVw9VPDSDgzKH5TfedS9qc</string>
-    <string name="google_storage_bucket" translatable="false">handinhand-d6ded.appspot.com</string>
-    <string name="project_id" translatable="false">handinhand-d6ded</string>
-</resources>
