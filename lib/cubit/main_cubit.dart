@@ -15,7 +15,7 @@ import '../model/researches_model.dart';
 import '../model/researches_of_researcher_model.dart';
 import '../model/researches_student_status_model.dart';
 import '../model/student_researches_model.dart';
-import '../model/user_model.dart';
+import '../model/user_data.dart';
 import 'application_states/main_states.dart';
 
 class MainCubit extends Cubit<MainStates> {
@@ -88,7 +88,7 @@ class MainCubit extends Cubit<MainStates> {
     String key = "language[$index]";
 
     int keyIndex =
-        secondKeys.indexWhere((element) => element.keys.first == key);
+    secondKeys.indexWhere((element) => element.keys.first == key);
 
     if (answer == 'notRelevant') {
       isFirstSecondQuestionChecked = answer == 'english';
@@ -185,7 +185,7 @@ class MainCubit extends Cubit<MainStates> {
     String key = "hearingNormal[$index]";
 
     int keyIndex =
-        fourthKeys.indexWhere((element) => element.keys.first == key);
+    fourthKeys.indexWhere((element) => element.keys.first == key);
 
     if (answer == 'notRelevant') {
       isFirstFourthQuestionChecked = answer == 'yes';
@@ -327,7 +327,7 @@ class MainCubit extends Cubit<MainStates> {
     String key = "musicalBackground[$index]";
 
     int keyIndex =
-        seventhKeys.indexWhere((element) => element.keys.first == key);
+    seventhKeys.indexWhere((element) => element.keys.first == key);
 
     if (answer == 'notRelevant') {
       isFirstSeventhQuestionChecked = answer == 'yes';
@@ -432,7 +432,7 @@ class MainCubit extends Cubit<MainStates> {
       };
 
       Response response =
-          await dio.get(baseUrl + "/researchers/user/researchs");
+      await dio.get(baseUrl + "/researchers/user/researchs");
 
       if (response.statusCode == 201) {
         List<dynamic> data = response.data['researches'];
@@ -576,7 +576,7 @@ class MainCubit extends Cubit<MainStates> {
             String studentStatus = studentsStatus[j]['status'];
 
             ResearchesStatus researchStatus =
-                ResearchesStatus.fromJson(data[i]);
+            ResearchesStatus.fromJson(data[i]);
 
             if (studentStatus == "pending") {
               studentResearchesStatusPendingList.add(researchStatus);
@@ -606,8 +606,8 @@ class MainCubit extends Cubit<MainStates> {
 
   Future<void> AcceptOrRefuse(
       {required String status,
-      required String id,
-      required String student}) async {
+        required String id,
+        required String student}) async {
     try {
       if (status == "accepted") {
         emit(AcceptLoadingState());
@@ -805,7 +805,7 @@ class MainCubit extends Cubit<MainStates> {
       };
 
       var response =
-          await dio.get(baseUrl + "/researchers/researcher/researches/$id");
+      await dio.get(baseUrl + "/researchers/researcher/researches/$id");
       if (response.statusCode == 201) {
         List<dynamic> data = response.data['researches'];
         researchesOfResearchersList =
@@ -867,7 +867,7 @@ class MainCubit extends Cubit<MainStates> {
 
   ////////////////////////////////////////////////////////////////////// get user data //////////////
 
-  List<UserModel> userList = [];
+  List<UserDataModel> userList = [];
 
   Future<void> getUserData() async {
     userList.clear();
@@ -882,7 +882,7 @@ class MainCubit extends Cubit<MainStates> {
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonData = response.data;
-        userList.add(UserModel.fromJson(jsonData));
+        userList.add(UserDataModel.fromJson(jsonData));
         emit(GetUserDataSuccess());
       }
     } on DioException catch (e) {
@@ -912,7 +912,7 @@ class MainCubit extends Cubit<MainStates> {
       var formData = http.MultipartRequest(
           'PUT', Uri.parse(baseUrl + "/users/profile/edit"));
       formData.headers['Authorization'] =
-          "Bearer ${CacheHelper.getData(key: 'token')}";
+      "Bearer ${CacheHelper.getData(key: 'token')}";
       formData.fields['name'] = name;
       formData.fields['email'] = email;
       formData.fields['mobile'] = mobile;
@@ -930,7 +930,7 @@ class MainCubit extends Cubit<MainStates> {
         String errorMessage = '';
         if (response.headers['content-type']!.startsWith('application/json')) {
           errorMessage =
-              json.decode(await response.stream.bytesToString())['message'];
+          json.decode(await response.stream.bytesToString())['message'];
         } else {
           errorMessage = 'An error occurred.';
         }

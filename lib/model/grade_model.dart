@@ -34,14 +34,14 @@ class AllGrades {
 
   AllGrades(
       {this.sId,
-      this.student,
-      this.research,
-      this.researcher,
-      this.isSuccess,
-      this.status,
-      this.createdAt,
-      this.updatedAt,
-      this.iV});
+        this.student,
+        this.research,
+        this.researcher,
+        this.isSuccess,
+        this.status,
+        this.createdAt,
+        this.updatedAt,
+        this.iV});
 
   AllGrades.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -101,24 +101,24 @@ class Research {
 
   Research(
       {this.sId,
-      this.researher,
-      this.researchQuestion,
-      this.hand,
-      this.language,
-      this.vision,
-      this.hearingNormal,
-      this.origin,
-      this.aDHD,
-      this.musicalBackground,
-      this.credits,
-      this.status,
-      this.approvment,
-      this.description,
-      this.newRequest,
-      this.studentsStatus,
-      this.createdAt,
-      this.updatedAt,
-      this.iV});
+        this.researher,
+        this.researchQuestion,
+        this.hand,
+        this.language,
+        this.vision,
+        this.hearingNormal,
+        this.origin,
+        this.aDHD,
+        this.musicalBackground,
+        this.credits,
+        this.status,
+        this.approvment,
+        this.description,
+        this.newRequest,
+        this.studentsStatus,
+        this.createdAt,
+        this.updatedAt,
+        this.iV});
 
   Research.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -218,19 +218,19 @@ class Researcher {
 
   Researcher(
       {this.sId,
-      this.name,
-      this.mobile,
-      this.email,
-      this.type,
-      this.image,
-      this.fbToken,
-      this.status,
-      this.birthDate,
-      this.gender,
-      this.password,
-      this.createdAt,
-      this.updatedAt,
-      this.iV});
+        this.name,
+        this.mobile,
+        this.email,
+        this.type,
+        this.image,
+        this.fbToken,
+        this.status,
+        this.birthDate,
+        this.gender,
+        this.password,
+        this.createdAt,
+        this.updatedAt,
+        this.iV});
 
   Researcher.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];

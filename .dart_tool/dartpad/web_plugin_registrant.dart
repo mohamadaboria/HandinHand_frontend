@@ -9,6 +9,7 @@
 import 'package:firebase_analytics_web/firebase_analytics_web.dart';
 import 'package:firebase_core_web/firebase_core_web.dart';
 import 'package:firebase_messaging_web/firebase_messaging_web.dart';
+import 'package:image_picker_for_web/image_picker_for_web.dart';
 import 'package:rive_common/rive_web.dart';
 import 'package:shared_preferences_web/shared_preferences_web.dart';
 import 'package:toast/toast_web.dart';
@@ -19,6 +20,7 @@ void registerPlugins([final Registrar? pluginRegistrar]) {
   FirebaseAnalyticsWeb.registerWith(registrar);
   FirebaseCoreWeb.registerWith(registrar);
   FirebaseMessagingWeb.registerWith(registrar);
+  ImagePickerPlugin.registerWith(registrar);
   RivePlugin.registerWith(registrar);
   SharedPreferencesPlugin.registerWith(registrar);
   ToastWebPlugin.registerWith(registrar);
